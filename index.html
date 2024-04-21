@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VHS</title>
-    <link href="styles.css" rel="stylesheet">
+    <title>Back To The VHS</title>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -13,17 +13,48 @@
         ctrl/
         alt shift f indentation
     -->
-    <h1>Back to the VHS</h1>
-    <header>
-        <nav class="nav">
-            <ul>
-                <li class=""><a href="">Home</a></li>
-                <li class=""><a href="">page1</a></li>
-                <li class=""><a href="">page2</a></li>
+    <header class="header">
+        <div class="header__banner">
+            <h1>
+                <a class="header__ttl" href="#">
+                    Back < to the VHS
+                </a>
+            </h1>
+        </div>
+        <nav class="nav header__nav" aria-label="menu principal">
+            <ul class="nav__lst">
+                <li class="">
+                    <a href="">
+                        <img src="img/Menu.svg" alt="menu burger">
+                    </a>
+                </li>
+                <li class="">
+                    <a href="">
+                        <img src="img/Person.svg" alt="connexion">
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
-    
+    <main>
+        <section class="banner-movie" aria-label="films du jour">
+            <div>
+                <img src="img/Rectangle.svg" alt="">
+            </div>
+            <div>
+                <p>Le 20 juin 1995 sortait </p>
+                <h2>Dumb and Dumber</h2>
+                <img src="img/Down Button.svg" alt="">
+                <div class="banner-movie__content-img">
+                    <img class="banner-movie__img" src="img/dumb and dumber.jpg" alt="">
+                </div>
+            </div>
+            <div>
+                <img src="img/Rectangle.svg" alt="">
+            </div>
+        </section>
+    </main>
+
 </body>
 
 </html>
