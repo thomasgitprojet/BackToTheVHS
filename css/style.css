@@ -21,6 +21,7 @@
 
 body,
 ul,
+p,
 h1, h2, h3, h4, h5, h6 {
 margin: 0;
 padding: 0;
@@ -62,8 +63,62 @@ ul {
 
 .banner-movie {
     display: flex;
+    text-align: center;
 }
 
 .banner-movie__img {
+    width: 100%;
+    padding: 1rem;
+}
+
+.banner-movie__bg-side {
+    width: 2.5rem;
+    padding: 1rem;
+    background-image: url("../img/Rectangle.svg");
+}
+
+.banner-movie__content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content-date {
     width: 50%;
+    align-self: center;
+}
+
+.content-tlt, .content-img {
+    width: 50%;
+}
+
+.content-btn {
+    width: 50%;
+    align-self: end;
+}
+
+.main {
+    background-image: url("../img/Rectangle\ 68.png");
+    background-size: cover;
+    padding: 1rem;
+}
+
+.content-products {
+    background-color: rgb(255, 255, 255, 55%);
+    padding: 1rem;
+}
+
+.content-products__lst {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.content-products__itm {
+    background-color: #ffffff;
+    padding: 1rem;
+    width: calc((100% - 1rem) /2);
+}
+
+.product-img {
+    width: 100%;
 }
