@@ -1,3 +1,8 @@
+/**
+ * Get the list of products for sale
+ * @param {element} elementParent element parent of template
+ * @param {array} dataBase data base of products
+ */
 function getProducts(elementParent, dataBase) {
     for (let object of dataBase) {
         const productTemplate = document.getElementById('productTemplate');
@@ -11,6 +16,11 @@ function getProducts(elementParent, dataBase) {
     }
 }
 
+/**
+ * Get the list of products for sale by order decreasing price
+ * @param {element} elementParent element parent of template
+ * @param {array} dataBase data base of products
+ */
 function getProductsByOrderdecreasingPrice(elementParent, dataBase) {
     dataBase.sort(function (a, b) {
         return a.price - b.price;
@@ -30,6 +40,11 @@ function getProductsByOrderdecreasingPrice(elementParent, dataBase) {
     })
 }
 
+/**
+ * Get the list of products for sale by order increasing price
+ * @param {element} elementParent element parent of template
+ * @param {array} dataBase data base of products
+ */
 function getProductsByOrderincreasingPrice(elementParent, dataBase) {
     dataBase.sort(function (a, b) {
         return b.price - a.price;
@@ -49,12 +64,22 @@ function getProductsByOrderincreasingPrice(elementParent, dataBase) {
     })
 }
 
+/**
+ * calcul the age of product 
+ * @param {string} date in the format jj/mm/aaaa
+ * @returns age of product in number
+ */
 function ageOfVHS(date) {
     const age = new Date(date);
     let ageVHS = (new Date(Date.now() - age)).getFullYear() - 1970;
     return ageVHS
 }
 
+/**
+ * Get the list of products for sale by order decreasing date
+ * @param {element} elementParent element parent of template
+ * @param {array} dataBase data base of products
+ */
 function getProductsByOrderdecreasingDate (elementParent, dataBase) {
     dataBase.sort(function (a, b) { 
         return ageOfVHS(a.date) - ageOfVHS(b.date);
@@ -74,6 +99,11 @@ function getProductsByOrderdecreasingDate (elementParent, dataBase) {
     })
 }
 
+/**
+ * Get the list of products for sale by order increasing date
+ * @param {element} elementParent element parent of template
+ * @param {array} dataBase data base of products
+ */
 function getProductsByOrderincreasingDate (elementParent, dataBase) {
     dataBase.sort(function (a, b) { 
         return ageOfVHS(b.date) - ageOfVHS(a.date);
