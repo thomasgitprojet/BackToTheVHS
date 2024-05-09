@@ -76,6 +76,7 @@ ul {
     width: 90%;
     position: absolute;
     right: -500px;
+    padding-bottom: 1rem;
 }
 
 .nav__page-open {
@@ -87,6 +88,8 @@ ul {
     width: 90%;
     position: absolute;
     right: 0px;
+    padding-bottom: 1rem;
+
 }
 
 .nav__page-close__img {
@@ -98,7 +101,7 @@ ul {
     text-shadow: 1px 1px 2px var(--red), 0 0 1em var(--orange), 0 0 0.2em var(--yellow-dark);
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
     padding: 2rem; 
 }
 
