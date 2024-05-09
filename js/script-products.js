@@ -55,8 +55,13 @@ const dataBase = [
 const ul = document.querySelector(".js-product__lst");
 const selectOrderPrice = document.querySelector(".input__select-priceOrder");
 const selectOrderDate = document.querySelector(".input__select-dateOrder");
+const openMenu = document.querySelector(".menu-close");
+const closeMenu = document.querySelector(".nav__page-close__img")
+const navPage = document.querySelector(".nav__page-close");
 
 Tools.getProducts(ul, dataBase);
+Tools.openMenu(openMenu, navPage);
+Tools.closeMenu(closeMenu, navPage);
 
 selectOrderPrice.addEventListener("change", function (event) {
     if (event.target.value === "1") {

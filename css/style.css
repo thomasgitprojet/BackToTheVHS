@@ -66,6 +66,43 @@ ul {
     justify-content: flex-end;
 }
 
+/*//////////nav page////////////*/
+.nav__page-close {
+    transition: all .3s;
+    background-image: url("../img/vhs-tapes-7297369_640.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    width: 90%;
+    position: absolute;
+    right: -500px;
+}
+
+.nav__page-open {
+    transition: all .3s;
+    background-image: url("../img/vhs-tapes-7297369_640.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    width: 90%;
+    position: absolute;
+    right: 0px;
+}
+
+.nav__page-close__img {
+    text-align: right;
+}
+
+.nav__page__lst {
+    text-align: center;
+    text-shadow: 1px 1px 2px var(--red), 0 0 1em var(--orange), 0 0 0.2em var(--yellow-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem; 
+}
+
+/*//////////banner movie////////////*/
 .banner-movie {
     display: flex;
     text-align: center;

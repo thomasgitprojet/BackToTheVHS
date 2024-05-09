@@ -122,6 +122,30 @@ function getProductsByOrderincreasingDate (elementParent, dataBase) {
 
     })
 }
+/**
+ * Change class of the menu page for to open
+ * @param {element} element 
+ * @param {*element} navElement 
+ */
+function openMenu (element, navElement) {
+    element.addEventListener("click", function() {
+        navElement.classList.remove("nav__page-close");
+        navElement.classList.add("nav__page-open");
+    })
+}
+
+/**
+ * Change class of the menu page for to close
+ * @param {element} element 
+ * @param {*element} navElement 
+ */
+function closeMenu (element, navElement) {
+    element.addEventListener("click", function() {
+        navElement.classList.remove("nav__page-open");
+        navElement.classList.add("nav__page-close");
+    
+    })
+}
 
 export default {
     getProducts,
@@ -129,5 +153,7 @@ export default {
     getProductsByOrderincreasingPrice,
     ageOfVHS,
     getProductsByOrderdecreasingDate,
-    getProductsByOrderincreasingDate
+    getProductsByOrderincreasingDate,
+    openMenu,
+    closeMenu
 }
