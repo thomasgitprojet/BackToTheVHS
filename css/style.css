@@ -64,6 +64,7 @@ ul {
 .nav__lst {
     display: flex;
     justify-content: flex-end;
+    gap: 1rem;
 }
 
 /*//////////nav page////////////*/
@@ -94,6 +95,7 @@ ul {
 
 .nav__page-close__img {
     text-align: right;
+    padding: 1rem 1rem 0 0;
 }
 
 .nav__page__lst {
@@ -179,7 +181,7 @@ ul {
     text-align: left;
 }
 
-/*main*/
+/*/////////////main//////////////*/
 
 .main {
     background-image: url("../img/Rectangle\ 68.png");
@@ -191,9 +193,11 @@ ul {
     margin-bottom: 1rem;
     width: 100%;
     background: linear-gradient(var(--red), var(--orange), var(--yellow-dark));
+    color: #ffffff;
+    padding: 0.5rem;
 }
 
-/* content infos*/
+/*//////////////// content infos///////////////*/
 
 .content-info {
     display: flex;
@@ -213,7 +217,59 @@ ul {
     text-align: end;
 }
 
-/* products page */
+/*//////////////// products page ////////////////*/
+
+/*//////////////// section search/filter ////////////////*/
+
+.search-bar {
+
+}
+
+.input {
+    margin: 0.5rem;
+}
+
+.input__search-bar {
+    padding: 0.5rem;
+}
+
+.search-btn {
+    background-color: var(--grey-dark);
+    color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+.input__label {
+    display: block;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    background-color: var(--grey-dark);
+    color: #ffffff;
+}
+
+.input__select-priceOrder, .input__select-dateOrder {
+    padding: 0.5rem;
+}
+
+.form__container {
+    display: flex;
+    justify-content: space-around;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.content-search {
+    background-image: url("../img/background\ complet.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1rem;
+    margin: 1rem 0 1rem;
+}
+
+
+/*//////////////// products content ////////////////*/
 
 .content-products {
     background-color: rgb(255, 255, 255, 55%);
@@ -238,24 +294,7 @@ ul {
     width: 100%;
 }
 
-.form__container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.content-search {
-    background-image: url("../img/bg-recherche.png");
-    background-size: cover;
-    padding: 1rem;
-    margin: 1rem 0 1rem;
-}
-
-.input__label {
-    background-color: #ffffff;
-}
-
-/* footer */
+/*/////////////// footer ////////////////////*/
 .footer {
     background-color: var(--grey-dark);
     padding: 1rem;
