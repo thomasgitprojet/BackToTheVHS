@@ -1,20 +1,30 @@
 /**
+ * create elemnt of template
+ * @param {*} object object of the loop from dataBase
+ * @param {*} elementParent 
+ */
+function creatTemplate (object, elementParent) {
+    const productTemplate = document.getElementById('productTemplate');
+    const product = document.importNode(productTemplate.content, true);
+    product.querySelector(".js-product__img").src = object.img;
+    product.querySelector(".product-tlt").textContent = object.title;
+    product.querySelector(".product-price").textContent = object.price + "€";
+    product.querySelector(".product__date").textContent = object.date;
+
+    elementParent.appendChild(product);
+}
+
+/**
  * Get the list of products for sale
  * @param {element} elementParent element parent of template
  * @param {array} dataBase data base of products
  */
 function getProducts(elementParent, dataBase) {
     for (let object of dataBase) {
-        const productTemplate = document.getElementById('productTemplate');
-        const product = document.importNode(productTemplate.content, true);
-        product.querySelector(".js-product__img").src = object.img;
-        product.querySelector(".product-tlt").textContent = object.title;
-        product.querySelector(".product-price").textContent = object.price + "€";
-        product.querySelector(".product__date").textContent = object.date;
-
-        elementParent.appendChild(product);
+        creatTemplate (object, elementParent)
     }
 }
+
 
 /**
  * Get the list of products for sale by order decreasing price
@@ -27,16 +37,7 @@ function getProductsByOrderdecreasingPrice(elementParent, dataBase) {
     })
 
     dataBase.forEach(function (p) {
-
-        const productTemplate = document.getElementById('productTemplate');
-        const product = document.importNode(productTemplate.content, true);
-        product.querySelector(".js-product__img").src = p.img;
-        product.querySelector(".product-tlt").textContent = p.title;
-        product.querySelector(".product-price").textContent = p.price + "€";
-        product.querySelector(".product__date").textContent = p.date;
-
-        elementParent.appendChild(product);
-
+        creatTemplate (p, elementParent)
     })
 }
 
@@ -51,16 +52,7 @@ function getProductsByOrderincreasingPrice(elementParent, dataBase) {
     })
 
     dataBase.forEach(function (p) {
-
-        const productTemplate = document.getElementById('productTemplate');
-        const product = document.importNode(productTemplate.content, true);
-        product.querySelector(".js-product__img").src = p.img;
-        product.querySelector(".product-tlt").textContent = p.title;
-        product.querySelector(".product-price").textContent = p.price + "€";
-        product.querySelector(".product__date").textContent = p.date;
-
-        elementParent.appendChild(product);
-
+        creatTemplate (p, elementParent)
     })
 }
 
@@ -86,16 +78,7 @@ function getProductsByOrderdecreasingDate (elementParent, dataBase) {
     })
 
     dataBase.forEach(function (p) {
-
-        const productTemplate = document.getElementById('productTemplate');
-        const product = document.importNode(productTemplate.content, true);
-        product.querySelector(".js-product__img").src = p.img;
-        product.querySelector(".product-tlt").textContent = p.title;
-        product.querySelector(".product-price").textContent = p.price + "€";
-        product.querySelector(".product__date").textContent = p.date;
-
-        elementParent.appendChild(product);
-
+        creatTemplate (p, elementParent)
     })
 }
 
@@ -110,16 +93,7 @@ function getProductsByOrderincreasingDate (elementParent, dataBase) {
     })
 
     dataBase.forEach(function (p) {
-
-        const productTemplate = document.getElementById('productTemplate');
-        const product = document.importNode(productTemplate.content, true);
-        product.querySelector(".js-product__img").src = p.img;
-        product.querySelector(".product-tlt").textContent = p.title;
-        product.querySelector(".product-price").textContent = p.price + "€";
-        product.querySelector(".product__date").textContent = p.date;
-
-        elementParent.appendChild(product);
-
+        creatTemplate (p, elementParent)
     })
 }
 /**
