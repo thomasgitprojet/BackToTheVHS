@@ -1,4 +1,96 @@
 /**
+ * Get current global token value.
+ * @returns 
+ */
+function getToken() {
+    return document.getElementById('token').value;
+}
+
+/**
+ * Display error message with template
+ * @param {string} errorMessage 
+ */
+function displayError(errorMessage) {
+    // const li = document.importNode(document.getElementById('templateError').content, true);
+    // console.log(li.querySelector('[data-error-message]'));
+    // const m = li.querySelector('[data-error-message]');
+    // m.innerText = errorMessage;
+    // document.getElementById('errorsList').appendChild(li);
+    // setTimeout(() => m.remove(), 2000);
+    console.error(errorMessage);
+}
+
+/**
+ * Display message with template
+ * @param {string} message 
+ */
+function displayMessage(message) {
+//     const li = document.importNode(document.getElementById('templateMessage').content, true);
+//     const m = li.querySelector('[data-message]')
+//     m.innerText = message;
+//     document.getElementById('messagesList').append(li);
+//     setTimeout(() => m.remove(), 2000);
+    console.log(message);
+}
+
+/**
+ * Generate asynchronous call to api.php with parameters
+ * @param {*} method GET, POST, PUT or DELETE
+ * @param {*} params An object with data to send.
+ * @returns 
+ */
+async function callAPI(method, params) {
+    try {
+        const response = await fetch("api.php", {
+            method: method,
+            body: JSON.stringify(params),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
+        const dataResponse = await response.json();
+        return dataResponse;
+    }
+    catch (error) {
+        console.error("Unable to load datas from server : " + error);
+    }
+}
+
+/**
+ * Create a new product
+ * 
+ * @param {object} data New user data
+ * @returns 
+ */
+export function addUser(data) {
+
+    if (!data.name.length) {
+        displayError("Nom de produit invalide.");
+        return;
+    }
+
+    //TO DO ajouter d'autre vérifications
+
+    data.token = getToken();
+    if (!data.token.length) {
+        displayError("Jeton invalide.");
+        return;
+    }
+
+    data.action = 'create';
+
+    callAPI('POST', data)
+        .then(output => {
+            if (!output.isOk) {
+                displayError(data.errorMessage);
+                return;
+            }
+
+            displayMessage(output.message);
+        });
+}
+
+/**
  * Get the list of products for sale
  * @param {element} elementParent element parent of template
  * @param {array} dataBase data base of products
