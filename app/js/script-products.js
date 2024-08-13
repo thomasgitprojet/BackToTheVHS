@@ -5,49 +5,97 @@ const dataBase = [
         title: "Abyss",
         price: 13,
         date: "10/10/1989",
-        img: "img/abyss.jpg",
+        img: "../img/abyss.jpg",
     },
     {
         title: "bloodsport",
         price: 11,
         date: "10/10/1990",
-        img: "img/bloodsport.jpg",
+        img: "../img/bloodsport.jpg",
     },
     {
         title: "Double Impact",
         price: 11,
         date: "10/10/1992",
-        img: "img/double impact.jpg"
+        img: "../img/double impact.jpg"
     },
     {
         title: "Dracula",
         price: 15,
         date: "10/10/1994",
-        img: "img/dracula.jpg"
+        img: "../img/dracula.jpg"
     },
     {
         title: "Dumb and Dumber",
         price: 18,
         date: "10/10/1995",
-        img: "img/dumb and dumber.jpg"
+        img: "../img/dumb and dumber.jpg"
     },
     {
         title: "Jurassic Park",
         price: 16,
         date: "10/10/1993",
-        img: "img/jurassic parck.jpg"
+        img: "../img/jurassic parck.jpg"
     },
     {
         title: "Mélodie du Sud",
         price: 50,
         date: "10/10/1978",
-        img: "img/mélodie du sud.jpg"
+        img: "../img/mélodie du sud.jpg"
     },
     {
         title: "Les Goonies",
         price: 20,
         date: "10/10/1984",
-        img: "img/les goonies.jpg"
+        img: "../img/les goonies.jpg"
+    },
+    {
+        title: "Abyss",
+        price: 13,
+        date: "10/10/1989",
+        img: "../img/abyss.jpg",
+    },
+    {
+        title: "bloodsport",
+        price: 11,
+        date: "10/10/1990",
+        img: "../img/bloodsport.jpg",
+    },
+    {
+        title: "Double Impact",
+        price: 11,
+        date: "10/10/1992",
+        img: "../img/double impact.jpg"
+    },
+    {
+        title: "Dracula",
+        price: 15,
+        date: "10/10/1994",
+        img: "../img/dracula.jpg"
+    },
+    {
+        title: "Dumb and Dumber",
+        price: 18,
+        date: "10/10/1995",
+        img: "../img/dumb and dumber.jpg"
+    },
+    {
+        title: "Jurassic Park",
+        price: 16,
+        date: "10/10/1993",
+        img: "../img/jurassic parck.jpg"
+    },
+    {
+        title: "Mélodie du Sud",
+        price: 50,
+        date: "10/10/1978",
+        img: "../img/mélodie du sud.jpg"
+    },
+    {
+        title: "Les Goonies",
+        price: 20,
+        date: "10/10/1984",
+        img: "../img/les goonies.jpg"
     }
 ]
 

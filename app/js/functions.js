@@ -17,7 +17,7 @@ function displayError(errorMessage) {
     // m.innerText = errorMessage;
     // document.getElementById('errorsList').appendChild(li);
     // setTimeout(() => m.remove(), 2000);
-    console.error(errorMessage);
+    // console.error(errorMessage);
 }
 
 /**
@@ -25,12 +25,12 @@ function displayError(errorMessage) {
  * @param {string} message 
  */
 function displayMessage(message) {
-//     const li = document.importNode(document.getElementById('templateMessage').content, true);
-//     const m = li.querySelector('[data-message]')
-//     m.innerText = message;
-//     document.getElementById('messagesList').append(li);
-//     setTimeout(() => m.remove(), 2000);
-    console.log(message);
+    // const li = document.importNode(document.getElementById('templateMessage').content, true);
+    // const m = li.querySelector('[data-message]')
+    // m.innerText = message;
+    // document.getElementById('messagesList').append(li);
+    // setTimeout(() => m.remove(), 2000);
+    // console.log(message);
 }
 
 /**
@@ -62,33 +62,33 @@ async function callAPI(method, params) {
  * @param {object} data New user data
  * @returns 
  */
-export function addUser(data) {
+// export function addUser(data) {
 
-    if (!data.name.length) {
-        displayError("Nom de produit invalide.");
-        return;
-    }
+//     if (!data.name.length) {
+//         displayError("Nom invalide.");
+//         return;
+//     }
 
-    //TO DO ajouter d'autre vérifications
+//     //TO DO ajouter d'autre vérifications
 
-    data.token = getToken();
-    if (!data.token.length) {
-        displayError("Jeton invalide.");
-        return;
-    }
+//     data.token = getToken();
+//     if (!data.token.length) {
+//         displayError("Jeton invalide.");
+//         return;
+//     }
 
-    data.action = 'create';
+//     data.action = 'create';
 
-    callAPI('POST', data)
-        .then(output => {
-            if (!output.isOk) {
-                displayError(data.errorMessage);
-                return;
-            }
+//     callAPI('POST', data)
+//         .then(output => {
+//             if (!output.isOk) {
+//                 displayError(data.errorMessage);
+//                 return;
+//             }
 
-            displayMessage(output.message);
-        });
-}
+//             displayMessage(output.message);
+//         });
+// }
 
 /**
  * Get the list of products for sale
@@ -247,5 +247,10 @@ export default {
     getProductsByOrderdecreasingDate,
     getProductsByOrderincreasingDate,
     openMenu,
-    closeMenu
+    closeMenu,
+    // addUser,
+    callAPI,
+    getToken,
+    // displayError,
+    // displayMessage
 }

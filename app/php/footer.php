@@ -8,10 +8,10 @@
              </h2>
          <div>
              <ul class="footer__lst--left">
-                 <li><a href=""><img src="img/instagram logo.svg" alt=""></a></li>
-                 <li><a href=""><img src="img/logo x.svg" alt=""></a></li>
-                 <li><a href=""><img src="img/linkedin icon.svg" alt=""></a></li>
-                 <li><a href=""><img src="img/facebook.svg" alt=""></a></li>
+                 <li><a href=""><img src="../img/instagram logo.svg" alt=""></a></li>
+                 <li><a href=""><img src="../img/logo x.svg" alt=""></a></li>
+                 <li><a href=""><img src="../img/linkedin icon.svg" alt=""></a></li>
+                 <li><a href=""><img src="../img/facebook.svg" alt=""></a></li>
              </ul>
          </div>
      </div>
