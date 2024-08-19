@@ -2,7 +2,7 @@
 session_start();
 include '../includes/_function.php';
 include '../includes/_config.php';
-// var_dump($_SESSION);
+var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -16,35 +16,72 @@ include '../includes/_config.php';
 </head>
 
 <body>
-    <?php require('header.php')?>
+    <?php require('header.php') ?>
     <main class="main">
         <div class="main__banner">
             <h2>Connexion</h2>
         </div>
         <div class="content_main_connexion">
-        <?php
+            <?php
             if (isset($_SESSION['msg'])) {
                 echo '<p class="msg_connexion">' . $messages[$_SESSION['msg']] . '</p>';
                 unset($_SESSION['msg']);
             }
-        ?>
-            <form class="form_connexion" action="" method="post">
+            ?>
+            <form class="form_connexion" action="../actions.php" method='POST'>
 
-                <label for="inputPseudo" class="form_connexion-label">Pseudo</label>
-                <input type="text" name="pseudo" class="input_connexion" id="inputName" aria-describedby="">
+                <label for="input_connexion-pseudo" class="form_connexion-label">Pseudo</label>
+                <input type="text" name="connexion_pseudo" class="input_connexion" id="input_connexion-pseudo" aria-describedby="">
+
+                <?php
+
+                if (isset($_SESSION['errorsList']) && in_array('connexion_pseudo', $_SESSION['errorsList'])) {
+
+                    echo
+                    displayErrorMsg('connexion_pseudo', $_SESSION['errorsList'], $errors);
+                }
+
+                if (isset($_SESSION['errorsList']) && in_array('connexion_pseudo_size', $_SESSION['errorsList'])) {
+
+                    echo
+                    displayErrorMsg('connexion_pseudo_size', $_SESSION['errorsList'], $errors);
+                }
+                ?>
 
                 <label for="inputPwd" class="form_connexion-label">Mot de passe</label>
-                <input type="password" name="pwd" class="input_connexion"
-                id="inputPwd" aria-describedby="">
+                <input type="password" name="connexion_password" class="input_connexion"
+                    id="inputPwd" aria-describedby="">
 
+
+                <?php
+                if (isset($_SESSION['errorsList']) && in_array('connexion_password', $_SESSION['errorsList'])) {
+
+                    echo
+                    displayErrorMsg('connexion_password', $_SESSION['errorsList'], $errors);
+                }
+
+                if (isset($_SESSION['errorsList']) && in_array('connexion_password_size', $_SESSION['errorsList'])) {
+
+                    echo
+                    displayErrorMsg('connexion_password_size', $_SESSION['errorsList'], $errors);
+                }
+
+                if (isset($_SESSION['errorsList']) && in_array('error_password', $_SESSION['errorsList'])) {
+
+                    echo
+                    displayErrorMsg('error_password', $_SESSION['errorsList'], $errors);
+                }
+                unset($_SESSION['errorsList']);
+                ?>
 
                 <div class="content_btn--connexion">
-                    
-                    <button type="submit" value="Submit" class="btn_connexion">Valider</button>
-                    <input id='token' type="hidden" name="token" value=''>
-                </div>              
+
+                    <input type="submit" value="Valider" class="btn_connexion"></button>
+                    <input id='token' type="hidden" name="token" value='<?= $_SESSION['token'] ?>'>
+                    <input type="hidden" name="action" value="connexion-account">
+                </div>
             </form>
-            
+
             <a href="inscription.php"><input type="hidden">Créer un compte</a>
         </div>
     </main>
@@ -58,6 +95,7 @@ include '../includes/_config.php';
     </template> -->
 
     <script type="module" src="../js/script-connexion.js"></script>
-    <?php require('footer.php')?>
+    <?php require('footer.php') ?>
 </body>
+
 </html>

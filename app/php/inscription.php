@@ -5,7 +5,6 @@ include '../includes/_function.php';
 include '../includes/_database.php';
 include '../includes/_config.php';
 
-var_dump($_SESSION);
 generateToken();
 ?>
 

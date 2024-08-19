@@ -12,7 +12,7 @@
                         <img src="../img/Menu.svg" alt="menu burger">
                 </li>
                 <li class="">
-                    <a href="connexion.php">
+                    <a href="<?= (empty($_SESSION['id_account']) ? 'connexion.php' : 'account.php') ?>">
                         <img src="../img/Person.svg" alt="connexion">
                     </a>
                 </li>
@@ -25,7 +25,8 @@
                 <li><a href="">Vendre</a></li>
                 <li><a href="">Infos</a></li>
                 <li>
-                    <a href="connexion.php">
+                    <a href="<?= (empty($_SESSION['id_account']) ? 'connexion.php' : 'account.php') ?>">
+                    <!-- "connexion.php" -->
                         <img src="../img/Person.svg" alt="connexion">
                     </a>
                 </li>

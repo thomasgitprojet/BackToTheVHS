@@ -2,7 +2,6 @@
 session_start();
 
 include 'includes/_function.php';
-
 generateToken();
 ?>
 
@@ -31,7 +30,8 @@ generateToken();
                     <img src="img/Menu.svg" alt="menu burger">
                 </li>
                 <li class="">
-                    <a href="php/connexion.php">
+                    <a href="<?= (empty($_SESSION['id_account']) ? 'php/connexion.php' : 'php/account.php') ?>">
+                    
                         <img src="img/Person.svg" alt="connexion">
                     </a>
                 </li>
@@ -44,7 +44,7 @@ generateToken();
                 <li><a href="">Vendre</a></li>
                 <li><a href="">Infos</a></li>
                 <li>
-                    <a href="php/connexion.php">
+                    <a href="<?= (empty($_SESSION['id_account']) ? 'php/connexion.php' : 'php/account.php') ?>">
                         <img src="img/Person.svg" alt="connexion">
                     </a>
                 </li>

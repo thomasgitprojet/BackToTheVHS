@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+
+var_dump($_SESSION['id_account']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

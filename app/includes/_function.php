@@ -223,7 +223,7 @@ function eraseFormData(): void
 }
 
 /**
- * Check for account fata format
+ * Check for account data format
  *
  * @param array $accountData An array containing account data
  * @return boolean Is there errors in account data ?
@@ -273,6 +273,34 @@ function checkAccountInfo(array $accountData): bool
     return empty($_SESSION['errorsList']);
 }
 
+/**
+ * Check for connexion data format
+ *
+ * @param array $connexionData An array containing account data
+ * @return boolean Is there errors in account data ?
+ */
+function checkConnexionInfo(array $connexionData): bool
+{
+
+    if (!isset($connexionData['connexion_pseudo']) || strlen($connexionData['connexion_pseudo']) === 0) {
+        addError('connexion_pseudo');
+    }
+
+    if (strlen($connexionData['connexion_pseudo']) > 10) {
+        addError('connexion_pseudo_size');
+    }
+
+    if (empty($connexionData['connexion_password'])) {
+        addError('connexion_password');
+    }
+
+    if (strlen($connexionData['connexion_password']) > 10) {
+        addError('connexion_password_size');
+    }
+
+    return empty($_SESSION['errorsList']);
+}
+
 
 /**
  * Removes tags from given array values
@@ -283,4 +311,49 @@ function checkAccountInfo(array $accountData): bool
 function stripTagsArray(array &$data): void
 {
     $data = array_map('strip_tags', $data);
+}
+
+
+/**
+ * Undocumented function
+ *
+ * @param PDO $dbCo
+ * @return void
+ */
+function checkAccountConnection (PDO $dbCo) {
+    $query = $dbCo->prepare("SELECT pseudo, id_account FROM account WHERE pseudo = :pseudo AND password = :password");
+
+        $query->execute([
+            'pseudo' => htmlspecialchars($_REQUEST['connexion_pseudo']),
+            'password' => password_hash($_REQUEST['connexion_password'], PASSWORD_BCRYPT)
+        ]);
+
+        while ($account = $query->fetch()) {
+            echo '<p>' . $account['id_account'] . '</p>';
+        }
+}
+
+function connectedMyAccount (PDO $dbCo) {
+    try {
+        $query = $dbCo->prepare("SELECT pseudo, id_account, password FROM account WHERE pseudo = :pseudo");
+
+        $query->execute([
+            'pseudo' => htmlspecialchars($_REQUEST['connexion_pseudo']),
+
+        ]);
+
+       while($account = $query->fetch()) {
+
+           if (password_verify($_REQUEST['connexion_password'], $account['password'])) {
+               $_SESSION["id_account"] = $account["id_account"];
+               redirectTo('index.php');
+            }else {
+                addError('error_password');
+                redirectTo('php/connexion.php');
+                
+            }
+        }
+    } catch (Exception $e) {
+        addError('error_connexion');
+    }
 }
