@@ -22,7 +22,7 @@
             <ul class="nav__lst">
                 <li><a href="../index.php">Accueil</a></li>
                 <li><a href="products.php">Acheter</a></li>
-                <li><a href="">Vendre</a></li>
+                <li><a href="<?= (empty($_SESSION['id_account']) ? 'php/connexion.php' : 'sellProduct.php') ?>">Vendre</a></li>
                 <li><a href="">Infos</a></li>
                 <li>
                     <a href="<?= (empty($_SESSION['id_account']) ? 'connexion.php' : 'account.php') ?>">
@@ -39,7 +39,7 @@
         <ul class="nav__page__lst">
             <li><a href="../index.php">Accueil</a></li>
             <li><a href="products.php">Acheter</a></li>
-            <li><a href="">Vendre</a></li>
+            <li><a href="<?= (empty($_SESSION['id_account']) ? 'php/connexion.php' : 'sellProduct.php') ?>">Vendre</a></li>
             <li><a href="">Infos</a></li>
         </ul>
     </nav>

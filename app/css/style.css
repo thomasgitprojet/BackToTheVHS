@@ -66,6 +66,13 @@ ul {
     padding: 1rem;
 }
 
+.header_msg {
+    position: absolute;
+    color: var(--orange);
+    right: 1rem;
+    font-size: 0.75rem;
+}
+
 @media screen and (min-width: 768px) {
     .header {
         display: flex;
@@ -299,11 +306,6 @@ ul {
 
 /*/////////////main//////////////*/
 
-.main {
-    /* background-image: url("../img/Rectangle\ 68.png");
-    background-size: cover;
-    padding: 1rem 0; */
-}
 
 .main__banner {
     width: 100%;
@@ -391,7 +393,6 @@ ul {
 
 /*//////////////// section search/filter ////////////////*/
 
-.search-bar {}
 
 .input {
     margin: 0.5rem;
@@ -460,12 +461,6 @@ ul {
     background-repeat: no-repeat;
     padding: 1rem;
     /* margin-bottom: 1rem; */
-}
-
-@media screen and (min-width: 768px) {
-    .content-search {
-
-    }
 }
 
 
@@ -665,10 +660,6 @@ ul {
     padding-top: 1rem;
 }
 
-@media screen and (min-width: 768px) {
-    .lst__item-right {
-    }
-}
 
 /*//////////////// connexion page ////////////////*/
 
@@ -735,4 +726,35 @@ ul {
     color: #ffffff;
     padding: 0.5rem 1rem;
     border-radius: 1rem;
+}
+
+/* //////////////////account page///////////////////// */
+
+.main--account {
+    background-image: url("../img/vhs.avif");
+    background-size: 30%;
+  }
+
+@media screen and (min-width: 768px) {
+    /* .main--account {
+      background-image: url("../img/vhs.avif");
+    } */
+}
+
+.account__content {
+    padding: 1rem;
+}
+
+.account__infos {
+    
+    width: 100%;
+    background-color:  rgb(255, 255, 255, 75%); 
+    border: solid 1px black;
+}
+
+/* ////////////////////////////vendre//////////////////// */
+
+.account-product-img {
+    /* width: 5rem;
+    height: 5rem; */
 }

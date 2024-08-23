@@ -1,7 +1,7 @@
 <?php
 session_start();
+include '../includes/_database.php';
 include '../includes/_function.php';
-echo "hello";
 generateToken();
 ?>
 <!DOCTYPE html>
@@ -16,18 +16,36 @@ generateToken();
 
 <body>
     <?php require('header.php') ?>
-    <main class="main">
+    <main class="main main--account">
 
         <div class="main__banner">
             <h2>Mon compte</h2>
         </div>
-        <form action="../actions.php" method="POST">
 
-            <input type="submit" value="déconnection" class="btn_inscription">
-            <input type="hidden" name="action" value="deconnexion">
-            <input id="token" type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-        </form>
-        
+        <section class="account__content">
+
+            <form action="../actions.php" method="POST">
+
+                <input type="submit" value="déconnection" class="btn_inscription">
+                <input type="hidden" name="action" value="deconnexion">
+                <input id="token" type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+            </form>
+            <div class="account__infos">
+                <img src="../img/images-avatar.png" alt="">
+                <ul>
+                    <?php getHtmlAccountInfos ($dbVHS) ?>
+                </ul>
+
+                <div>
+                    <ul>
+                        <?php getHtmlProduct ($dbVHS) ?>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
     </main>
     <?php require('footer.php') ?>
 </body>

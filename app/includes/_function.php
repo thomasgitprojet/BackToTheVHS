@@ -55,6 +55,11 @@ function isTokenOk(?array $data = null): bool
  */
 function isRefererOk(): bool
 {
+    // HTTP_REFERER existe dans la superglobale $_SERVER
+    // HTTP_REFERER est un en-tête HTTP qui indique l'URL de la page d'où provient la requête actuelle.
+    // La fonction utilise isset() pour vérifier si cet en-tête est défini
+    // Si HTTP_REFERER est défini, la fonction utilise str_contains() pour vérifier si l'URL définie dans $globalUrl est contenue dans l'URL  du HTTP_REFERER.
+    // str_contains() renvoie true si la chaîne spécifiée est trouvée dans la chaîne principale, sinon false.
     global $globalUrl;
     return isset($_SERVER['HTTP_REFERER'])
         && str_contains($_SERVER['HTTP_REFERER'], $globalUrl);
@@ -303,6 +308,33 @@ function checkConnexionInfo(array $connexionData): bool
 
 
 /**
+ * Check for product data format
+ *
+ * @param array $productData An array containing product data
+ * @return boolean Is there errors in product data ?
+ */
+function checkProductInfo (array $connexionData): bool {
+    if (!isset($connexionData['name']) || strlen($connexionData['name']) === 0) {
+        addError('title');
+    }
+
+    if (!isset($connexionData['image']) || strlen($connexionData['image']) === 0) {
+        addError('photo');
+    }
+
+    if (strlen($connexionData['description']) > 200) {
+        addError('description_size');
+    }
+
+    if (!isset($connexionData['price']) || strlen($connexionData['price']) === 0) {
+        addError('price');
+    }
+
+    return empty($_SESSION['errorsList']);
+}
+
+
+/**
  * Removes tags from given array values
  *
  * @param array $data-input values
@@ -333,6 +365,12 @@ function checkAccountConnection (PDO $dbCo) {
         }
 }
 
+/**
+ * connected to account
+ *
+ * @param PDO $dbCo
+ * @return void
+ */
 function connectedMyAccount (PDO $dbCo) {
     try {
         $query = $dbCo->prepare("SELECT pseudo, id_account, password FROM account WHERE pseudo = :pseudo");
@@ -346,6 +384,7 @@ function connectedMyAccount (PDO $dbCo) {
 
            if (password_verify($_REQUEST['connexion_password'], $account['password'])) {
                $_SESSION["id_account"] = $account["id_account"];
+               $_SESSION["pseudo"] = $account["pseudo"];
                redirectTo('index.php');
             }else {
                 addError('error_password');
@@ -355,5 +394,44 @@ function connectedMyAccount (PDO $dbCo) {
         }
     } catch (Exception $e) {
         addError('error_connexion');
+    }
+}
+
+/**
+ * construct html list of account infos
+ *
+ * @param PDO $dbCo
+ * @return void
+ */
+function getHtmlAccountInfos (PDO $dbCo) {
+    $query = $dbCo->query("SELECT * FROM account WHERE id_account = $_SESSION[id_account]");
+    $query->execute();
+    while ($account = $query->fetch()) {
+        echo 
+            '<li>' . $account['name'] . '</li>'
+            . '<li>' . $account['first_name'] . '</li>'
+            . '<li>' . $account['pseudo'] . '</li>';
+    }
+}
+
+/**
+ * construct html list of products
+ *
+ * @param PDO $dbCo
+ * @return void
+ */
+function getHtmlProduct (PDO $dbCo) {
+    $query = $dbCo->query("SELECT * FROM product WHERE id_account = $_SESSION[id_account]");
+
+    $query->execute();
+
+    while ($product = $query->fetch()) {
+        echo 
+            '<li>
+                <img class="account-product-img" src="' . $product['image'] . '" alt="">'
+                . '<h3>' . $product['name'] . '</h3>'
+                . '<p>' . $product['description_product'] . '</p>'
+                . '<p>' . $product['price_product'] . '€</p>
+            </li>';
     }
 }

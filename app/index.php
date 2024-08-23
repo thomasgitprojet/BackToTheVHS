@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include 'includes/_function.php';
 generateToken();
 ?>
@@ -37,11 +36,12 @@ generateToken();
                 </li>
             </ul>
         </nav>
+
         <nav class="nav header__nav--desktop">
             <ul class="nav__lst">
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="php/products.php">Acheter</a></li>
-                <li><a href="">Vendre</a></li>
+                <li><a href="<?= (empty($_SESSION['id_account']) ? 'php/connexion.php' : 'php/sellProduct.php') ?>">Vendre</a></li>
                 <li><a href="">Infos</a></li>
                 <li>
                     <a href="<?= (empty($_SESSION['id_account']) ? 'php/connexion.php' : 'php/account.php') ?>">
@@ -49,6 +49,9 @@ generateToken();
                     </a>
                 </li>
             </ul>
+            <div class="header_msg">
+                <p> <?= (!empty($_SESSION["pseudo"])) ? 'Bonjour ' . $_SESSION["pseudo"] : '' ?></p>
+            </div>
         </nav>
         <nav class="nav__page-close">
             <div class="nav__page-close__img">
@@ -57,7 +60,7 @@ generateToken();
             <ul class="nav__page__lst">
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="php/products.php">Acheter</a></li>
-                <li><a href="">Vendre</a></li>
+                <li><a href="<?= (empty($_SESSION['id_account']) ? 'php/connexion.php' : 'php/sellProduct.php') ?>">Vendre</a></li>
                 <li><a href="">Infos</a></li>
             </ul>
         </nav>

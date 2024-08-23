@@ -22,9 +22,14 @@ $errors = [
     'connexion_password_size' => 'Saisissez un mot de passe de 10 caractères maximum',
     'error_password' => 'Mot de passe incorrect',
     'error_connexion' => 'Aucun compte ne correspond à ces identifiants, vérifiez les informations',
+    'title' => 'Saisissez un titre',
+    'photo' => 'Ajoutez une photo',
+    'description_size' => 'Saisissez une description de 200 caractères au maximum',
+    'price' => 'Saisissez un prix',
     'error_check' => 'l erreure est ici'
 ];
 
 $messages = [
-    'inscription_ok' => 'Compte enregistré, vous pouvez vous connecter'
+    'inscription_ok' => 'Compte enregistré, vous pouvez vous connecter',
+    'add_product_ok' => 'Produit enregistré',
 ];
